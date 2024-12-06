@@ -9,7 +9,7 @@ def load_table(filepath, delimiterr = ','):
     """
     if filepath[-3:] == 'csv':
         try:
-            with open(filepath, 'r', newline='', encoding='utf-8') as file:
+            with open(filepath, 'r', newline = '', encoding = 'utf-8') as file:
                 reader = csv.reader(file, delimiter = delimiterr)
                 headers = next(reader)
                 rows = list(reader)
@@ -136,8 +136,8 @@ def get_rows_by_number(table, start = 1, stop = 'none', copy_table = False):
             return result
         else:
             try:
-                with open('newflow1.csv', 'w+', newline='') as file:
-                    writer = csv.writer(file, delimiter=';')
+                with open('newflow1.csv', 'w+', newline = '') as file:
+                    writer = csv.writer(file, delimiter = ';')
                     writer.writerows(result)
                     return 'Словарь успешно сохранен в файл'
             except FileNotFoundError:
@@ -301,7 +301,7 @@ def print_table(data):
     except:
         return 'Ошибка вывода таблицы'
 filepath = 'gogl.csv'
-delimiterr = ';' # Change to ',' if your delimiter is a comma.
+delimiterr = ';'
 table_data = load_table(filepath, delimiterr)
 print(load_table(filepath, delimiterr))
 print(save_table(table_data))
